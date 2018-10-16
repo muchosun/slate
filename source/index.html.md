@@ -1,239 +1,158 @@
 ---
-title: API Reference
+title: Drone Employee FrameWork
 
-language_tabs: # must be one of https://git.io/vQNgJ
+language_tabs: 
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
+  - <a href='http://Drone-Employee.com'>Наш сайт</a>
+  - <a href='http://Drone-Employee.com'>Documentation Powered by DroneEmployee</a>
 
 search: true
 ---
 
-# Introduction
+# Введение
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```
+  _____                       ______                 _                       
+ |  __ \                     |  ____|               | |                      
+ | |  | |_ __ ___  _ __   ___| |__   _ __ ___  _ __ | | ___  _   _  ___  ___ 
+ | |  | | '__/ _ \| '_ \ / _ \  __| | '_ ` _ \| '_ \| |/ _ \| | | |/ _ \/ _ \
+ | |__| | | | (_) | | | |  __/ |____| | | | | | |_) | | (_) | |_| |  __/  __/
+ |_____/|_|  \___/|_| |_|\___|______|_| |_| |_| .__/|_|\___/ \__, |\___|\___|
+                                              | |             __/ |          
+                                              |_|            |___/          
 ```
 
-```python
-import kittn
+> Все необходимые команды для shell вы можете скопировать из данного столбца
 
-api = kittn.authorize('meowmeowmeow')
+```
+  ______                     __          __        _    
+ |  ____|                    \ \        / /       | |   
+ | |__ _ __ __ _ _ __ ___   __\ \  /\  / /__  _ __| | __
+ |  __| '__/ _` | '_ ` _ \ / _ \ \/  \/ / _ \| '__| |/ /
+ | |  | | | (_| | | | | | |  __/\  /\  / (_) | |  |   < 
+ |_|_ |_|  \__,_|_| |_| |_|\___| \/  \/ \___/|_|  |_|\_\
+  / _|                                                  
+ | |_ ___  _ __                                         
+ |  _/ _ \| '__|                                        
+ | || (_) | |                                           
+ |_|_\___/|_|           _                               
+ |  __ \               | |                              
+ | |  | | _____   _____| | ___  _ __   ___ _ __ ___     
+ | |  | |/ _ \ \ / / _ \ |/ _ \| '_ \ / _ \ '__/ __|    
+ | |__| |  __/\ V /  __/ | (_) | |_) |  __/ |  \__ \    
+ |_____/ \___| \_/ \___|_|\___/| .__/ \___|_|  |___/    
+                               | |                      
+                               |_|                      
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
 ```
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-```javascript
-const kittn = require('kittn');
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-let api = kittn.authorize('meowmeowmeow');
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ```
+Фреймфорк платформа Дрон-сотрудник, была придумана разработчиками для разработчиков, и несет в себе функционал, легко интегрируемых инструментов, спроектированных на надежной платформе по взаимодействию роботизированных систем [ROS](https://ros.org). Данный фреймворк, не только представляет из себя инструмент по автоматизации логистики беспилотных летательных аппаратов, основывающаяся на концепции [AIRA Индустрия 4.0](https://aira.life), но а также помогает увеличить набор полезного функционала для вашего програмного обеспечения.
 
-> Make sure to replace `meowmeowmeow` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Разрабатываемая технология состоит из нескольких элементов:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+1. Протокол Робономики (Экономики роботов) — защищенный коммуникационный протокол для взаимодействия узлов системы (БПЛА, системы управления трафиков, баз мониторинга и.т.д.). В основе протокола лежит распределенный компьютер Ethereum, с помощью которого осуществляется peer-to-peer обмен и хранение данных посредством блокчейн. Это с одной стороны решает проблему масштабируемости системы коммуникаций, а с другой — обеспечивает защиту от взлома. Узлы взаимодействуют друг с другом с помощью рыночного механизма, предлагая и покупая “услуги” друг у друга за внутренний аналог денежный средств - токена Робономики XRT.
 
-`Authorization: meowmeowmeow`
+  В протокол входит:
+  
+  * Набор пакетов для фреймворка Robot Operating System, обеспечивающие интеграцию ROS-совместимых устройств в Ethereum. Для этого был реализовано приложение для ROS — aira_ros_bridge — которое выполняет низкоуровневую связь агента с умным контрактом. Это позволяет стандартизировать подключение к сети для гетерогенных устройств.
+  * Набор умных контрактов — защищенных программных алгоритмов, которые выполняются в зависимости от прописанных условий. Разрабатываемые умные контракты описывают базовые задания для узлов: вылет в нужную точку, съемка, отправка данных и.т.д. 
+  * Фабрика контрактов: новые контракты синтезируются на базе унифицированного контракта RobotLiability, что позволяет генерировать контрактов с различными условиями по шаблону.
+  * Программное обеспечение для интеграции с контентно-адресуемой, одноранговой файловой системой InterPlanetary File System, через которую осуществляется хранение больших объемов данных (например, результаты видеосъемки).
+  * Blockchain Drone Identity (BDID) — уникальный идентификатор для дрона, хранимый в блокчейне. Позволяет однозначно установить принадлежность дрона, что необходимо на уровне согласования полетов.
+  * Особые узлы сети, гарантирующие рыночные взаимодействия между участниками сети мониторинга:
+  * Маяки — узлы, поселяющие экономически значимую информации сети Робономики в блокчейн Ethereum. Они принимают и ретранслируют сообщения участников сети, поселяют информацию о заключении и завершении контракта при нахождении соответствия спроса и предложения.
+  Наблюдатели — узлы, проверяющие заявленную модель условий контракта с моделью выполненного результата и подтверждающие ее выполнение задания.
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+2. Аппаратная часть для выполнения мониторинга: беспилотные летательные аппараты, оборудованные регистрирующими устройствами и подготовленные для проведения мониторинга лесных массивов. Предполагается закупка и оборудование БПЛА, наиболее подходящих для выполнения задач мониторинга. Среди поддерживаемых регистрирующих устройств: видеокамеры и тепловизоры.
 
-# Kittens
+3. База мониторинга — техническая платформа для обработки данных и принятия решений, а также управления, содержания и зарядки БПЛА. 
 
-## Get All Kittens
+3. Система автоматического управления воздушным трафиком — автоматический диспетчер, установленный на базе мониторинга, который обеспечивает контроль за вылетающими на задание дронами. Среди его функций: назначение маршрутов облета, оптимизация путей, сбор технических данных о состоянии патрулирующих дронов, получение телеметрии от дронов. Узел также отвечает за оформление запросов на вылет БПЛА в службы ОрВД. Миссии для дронов загружаются диспетчером в виде файлов формата yaml. 
 
-```ruby
-require 'kittn'
+5. Система распознавания пожаров — программное обеспечение, установленное на базе мониторинга, которое анализирует получаемые с БПЛА данные о состоянии лесного массива. Разрабатывается на основе машинного обучения. При обнаружении возгорания сигнализирует автоматическому диспетчеру и оператору.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+6. Оператор мониторинга — главный узел сети, установленный на базе мониторинга и принимающий информацию от остальный узлов. Он обрабатывает данные распознавания, полученные от всего флота БПЛА, и принимает решения о вызове служб реагирования. Обеспечивается интеграция со службами МЧС, ЕДДС. Для ручного контроля оператора мониторинга предоставляется административный инструментарий с удобным пользовательским интерфейсом. 
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+# Сборка и настройка фреймворк платформы Дрон-сотрудник
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Разделы внизу описывают процесс, который позволит развернуть FrameWork и сделать ваше первое приложение.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+После корректного выполнения всех действий вы получите полноценную платформу по работе с флотом дронов.
 </aside>
 
-## Get a Specific Kitten
+<aside class="success">
+После корректного выполнения всех действий вы получите полноценную платформу по работе с флотом дронов.
+</aside>
 
-```ruby
-require 'kittn'
+<aside class="success">
+После корректного выполнения всех действий вы получите полноценную платформу по работе с флотом дронов.
+</aside>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+## Подготовка необходимого програмного обеспечения
 
-```python
-import kittn
+Рекомендуемые аппаратные требования:
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+   * Процессор двухъядерный с тактовой частотой 2 ГГц или лучше
+   * Оперативная память не менее 8 Гб
+   * Свободное место на жестком диске не менее 60 Гб
+   * Дополнительные требования не менее 4 Гб для файла подкачки
+ 
+Требования к операционной системе:
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+На текущем этапе требуется выявить на какой платформе вы планируете развертывать предоставляемый вам програмный продук. Вы долны понимать, что установка может производится как на архитектуру x64. Ниже приведен список требований к системе, выборка в который произвдоилась по принципу возможности установки програмного продукта [Docker](https://docs.docker.com/).
 
-```javascript
-const kittn = require('kittn');
+  * Linux base OS 
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+Требования к предустановленным компонентам системы:
 
-> The above command returns JSON structured like this:
+Ниже присутствует список компонентов той или иной операционной системы который необходимо доустановить.
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+  * [Docker](https://docs.docker.com/install/)
+  * [Docker-composer](https://docs.docker.com/compose/install/)
+  * [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 
-This endpoint retrieves a specific kitten.
+Предварительная настройка Docker:
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+  * Зарегистрируйтесь на [Docker Hub](https://hub.docker.com/)
+  * Авторизируйтесь в свою учетную запись Docker Hub
+  * Авторизируйтесь в свою учетную запись Docker Hub через консоль.
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+sudo docker login
 ```
 
-```javascript
-const kittn = require('kittn');
+Предварительная настройка VirtualBox:
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+  * Скачать и импортировать образ [Quick start image AIRA](https://github.com/airalab/aira/releases/download/0.14/aira-0_14.ova)
+  * Настроить базовые характеристики образа согласно [документации AIRA](https://aira.readthedocs.io/en/latest/getting_started.html)  
+  
+
+## Настройка и конфигурирование Framework Drone-Employee
+ 
+>Create empty folder for docker-compose config file.
+ 
+```shell
+mkdir ~/DroneEmployeeDocker
+cd ~/DroneEmployeeDocker/
 ```
 
-> The above command returns JSON structured like this:
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+## Разработка первого приложения
